@@ -77,10 +77,10 @@ flutter:
   # list giving the assets and other descriptors for the font. For
   # example:
   # fonts:
-  #   - family: Schyler
+  #   - family: Poppins
   #     fonts:
-  #       - assets: fonts/Schyler-Regular.ttf
-  #       - assets: fonts/Schyler-Italic.ttf
+  #       - assets: fonts/Poppins-Regular.ttf
+  #       - assets: fonts/Poppins-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

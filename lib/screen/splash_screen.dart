@@ -14,27 +14,18 @@ class SplashScreen extends StatelessWidget {
     top: 0,
     left: 0,
     child: Image.asset(
-    'assets/images/shape.png',
+    'assets/images/bg_top_left_circles_img.png',
     width: size.width * 0.6,
     fit: BoxFit.contain,
     ),
     ),
-      Positioned(
-        top: 0,
-        right: 0,
-        child: Image.asset(
-          'assets/images/notification.png',
-          width: size.width * 0.8,
-        ),
-
-      ),
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 220),
           Image.asset(
-            'assets/images/undraw_mobile_ux_o0e1 1.png',
+            'assets/images/man_with_iphone_img.png',
           ),
            SizedBox(height: 45),
            Center(
