@@ -31,7 +31,6 @@ class RegistrationScreen extends StatelessWidget {
                   SizedBox(height: 30),
                   SizedBox(
                     width: 300,
-
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Enter your full name',
@@ -53,7 +52,6 @@ class RegistrationScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: 'Enter your email',
                         hintStyle: TextStyle(fontSize: 16, color: Colors.white),
-
                         filled: true,
                         fillColor: Colors.blue,
                         contentPadding: EdgeInsets.symmetric(
@@ -118,7 +116,7 @@ class RegistrationScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(),
                     ),
                     child: Text(
-                      'Get Started',
+                      'Register',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 25,
