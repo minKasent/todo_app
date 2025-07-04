@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rc/screen/registration_screen.dart';
 import 'package:flutter_rc/screen/splash_screen.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class TodoApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const SplashScreen(),
+      home: const RegistrationScreen(),
+      // home: const SplashScreen(),
     );
 
   }
