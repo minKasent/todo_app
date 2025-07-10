@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rc/components/app_button.dart';
-import 'package:flutter_rc/components/app_textfiled.dart';
+import 'package:flutter_rc/components/app_textfield.dart';
 import 'package:flutter_rc/constants/app_color_path.dart';
 import 'package:flutter_rc/constants/app_image_path.dart';
 
@@ -9,7 +9,6 @@ class RegistrationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Create controllers for the text fields
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
