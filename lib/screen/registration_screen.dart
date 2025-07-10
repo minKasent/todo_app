@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rc/components/app_button.dart';
+import 'package:flutter_rc/components/app_textfiled.dart';
 import 'package:flutter_rc/constants/app_color_path.dart';
 import 'package:flutter_rc/constants/app_image_path.dart';
 
@@ -8,6 +9,12 @@ class RegistrationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Create controllers for the text fields
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController = TextEditingController();
+
     return Material(
       child: Container(
         color: AppColorPath.lightWhite,
@@ -17,8 +24,30 @@ class RegistrationScreen extends StatelessWidget {
             Image.asset(AppImagePath.bgTopLeftCircilesImg),
             SizedBox(height: 76),
             ..._buildTextWidget(),
-            ..._buildTextFiledWidget(),
-            SizedBox(height: 15),
+            AppTextField(
+              hintText: 'Enter your full name',
+              controller: nameController,
+              keyboardType: TextInputType.name,
+            ),
+            SizedBox(height: 21),
+            AppTextField(
+              hintText: 'Enter your email',
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+            ),
+            SizedBox(height: 21),
+            AppTextField(
+              hintText: 'Enter password',
+              controller: passwordController,
+              obscureText: true,
+            ),
+            SizedBox(height: 21),
+            AppTextField(
+              hintText: 'Confirm password',
+              controller: confirmPasswordController,
+              obscureText: true,
+            ),
+            SizedBox(height: 55),
 
             AppButton(
               content: 'Register',
@@ -36,7 +65,7 @@ class RegistrationScreen extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         fontFamily: 'PopPins',
                       ),
-
+                     /// takenote: AppText
                     ),
                      Text("Sign in ",
                       style: TextStyle(
@@ -84,108 +113,6 @@ class RegistrationScreen extends StatelessWidget {
       SizedBox(height: 49,),
     ];
   }
-  List<Widget> _buildTextFiledWidget() {
-    return [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Enter your full name',
-                hintStyle: TextStyle(color: Colors.grey[500]),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 25),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: const BorderSide(color: Color(0xFF48C9B0), width: 2),
-                ),
-              ),
-              keyboardType: TextInputType.name,
-            ),
-            SizedBox(height: 21),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Enter your email',
-                hintStyle: TextStyle(color: Colors.grey[500]),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding:  EdgeInsets.symmetric(vertical: 18, horizontal: 25),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide:  BorderSide(color: Color(0xFF48C9B0), width: 2),
-                ),
-              ),
-              keyboardType: TextInputType.emailAddress,
-            ),
-            SizedBox(height: 21),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Enter password',
-                hintStyle: TextStyle(color: Colors.grey[500]),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: Color(0xFF48C9B0), width: 2),
-                ),
-              ),
-              obscureText: true,
-            ),
-            SizedBox(height: 21),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Confirm password',
-                hintStyle: TextStyle(color: Colors.grey[500]),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 25),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: Color(0xFF48C9B0), width: 2),
-                ),
-              ),
-              obscureText: true,
-            ),
 
-          ],
-        ),
-      ),
-      SizedBox(height: 38),
-    ];
-  }
+
 }
