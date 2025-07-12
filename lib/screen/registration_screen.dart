@@ -3,6 +3,7 @@ import 'package:flutter_rc/components/app_button.dart';
 import 'package:flutter_rc/components/app_textfield.dart';
 import 'package:flutter_rc/constants/app_color_path.dart';
 import 'package:flutter_rc/constants/app_image_path.dart';
+import 'package:flutter_rc/screen/login_screen.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
@@ -12,7 +13,8 @@ class RegistrationScreen extends StatelessWidget {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final TextEditingController confirmPasswordController = TextEditingController();
+    final TextEditingController confirmPasswordController =
+        TextEditingController();
 
     return Material(
       child: Container(
@@ -50,33 +52,40 @@ class RegistrationScreen extends StatelessWidget {
 
             AppButton(
               content: 'Register',
-              /// TODO: Navigate to Login Screen
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
             ),
-            SizedBox(height: 23,),
+            SizedBox(height: 23),
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   Text("Already have an account? ",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'PopPins',
-                      ),
-                     /// takenote: AppText
+                  Text(
+                    "Already have an account? ",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'PopPins',
                     ),
-                     Text("Sign in ",
-                      style: TextStyle(
-                        color: AppColorPath.lightBlue,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'PopPins',
-                      ),
+
+                    /// takenote: AppText
+                  ),
+                  Text(
+                    "Sign in ",
+                    style: TextStyle(
+                      color: AppColorPath.lightBlue,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'PopPins',
                     ),
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -109,9 +118,7 @@ class RegistrationScreen extends StatelessWidget {
           ),
         ),
       ),
-      SizedBox(height: 49,),
+      SizedBox(height: 49),
     ];
   }
-
-
 }

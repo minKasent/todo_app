@@ -1,8 +1,10 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rc/components/app_button.dart';
 import 'package:flutter_rc/components/app_textfield.dart';
 import 'package:flutter_rc/constants/app_color_path.dart';
 import 'package:flutter_rc/constants/app_image_path.dart';
+import 'package:flutter_rc/screen/dashboard_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -15,6 +17,7 @@ class LoginScreen extends StatelessWidget {
     return Material(
       child: Container(
         color: AppColorPath.lightWhite,
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -32,9 +35,10 @@ class LoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Center(
-                child: Image.asset(
-                  AppImagePath.loginImg,
-                  height: 200,
+                child: DottedBorder(
+                  padding: EdgeInsets.symmetric(vertical: 24, horizontal: 36),
+                  dashPattern: [5, 5],
+                  child: Image.asset(AppImagePath.loginImg),
                 ),
               ),
               SizedBox(height: 46),
@@ -66,8 +70,15 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 25),
-              /// TODO : Navigate to Home Screen
-              AppButton(content: 'Sign In', onTap: () {}),
+              AppButton(
+                content: 'Sign In',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DashboardScreen()),
+                  );
+                },
+              ),
               SizedBox(height: 30),
               Center(
                 child: RichText(
@@ -92,10 +103,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 300),
             ],
           ),
-
+        ),
       ),
     );
   }
