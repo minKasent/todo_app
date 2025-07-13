@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rc/components/app_button.dart';
 import 'package:flutter_rc/constants/app_color_path.dart';
 import 'package:flutter_rc/constants/app_image_path.dart';
+import 'package:flutter_rc/screen/registration_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -15,15 +16,18 @@ class SplashScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(AppImagePath.bgTopLeftCircilesImg),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             Center(child: Image.asset(AppImagePath.manWithIphoneImg)),
-            SizedBox(height: 45),
+            const SizedBox(height: 45),
             ..._buildTextWidget(),
             AppButton(
               content: 'Get Started',
-
-              /// TODO: Navigate to Register Screen
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegistrationScreen()),
+                );
+              },
             ),
             const Spacer(),
           ],
@@ -45,7 +49,7 @@ class SplashScreen extends StatelessWidget {
           ),
         ),
       ),
-      SizedBox(height: 36),
+      const SizedBox(height: 36),
       Center(
         child: Text(
           'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit. '
