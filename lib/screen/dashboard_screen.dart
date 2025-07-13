@@ -6,6 +6,8 @@ import 'package:flutter_rc/constants/app_image_path.dart';
 import 'package:flutter_rc/screen/widgets/checkbox_with_title_widget.dart';
 import 'package:flutter_rc/screen/widgets/circle_avatar_widget.dart';
 
+import '../models/task.dart';
+
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
@@ -76,7 +78,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(
-          "Good Afternoon",
+          _buildGreetingMessage(),
           style: TextStyle(
             color: AppColorPath.black,
             fontFamily: 'PopPins',
@@ -136,13 +138,62 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   fontSize: 14,
                 ),
               ),
-              Icon(Icons.add_circle_outline, color: AppColorPath.lightBlue),
+              InkWell(
+                onTap: _buildAddTaskDialog,
+                child: Icon(Icons.add_circle_outline, color: AppColorPath.lightBlue),
+              ),
             ],
           ),
           _buildTasksListContentWidget(),
         ],
       ),
     );
+  }
+  void _buildAddTaskDialog() {
+    final TextEditingController taskController = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Add New Task"),
+          content: TextField(
+            controller: taskController,
+            decoration: InputDecoration(hintText: "Enter your task"),
+            autofocus: true,
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Cancel"),
+            ),
+            TextButton(
+              onPressed: () {
+                if (taskController.text.isNotEmpty) {
+                  setState(() {
+                    AppData.tasks.add(Task(title: taskController.text));
+                  });
+                  Navigator.of(context).pop();
+                }
+              },
+              child: Text("Add"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+  String _buildGreetingMessage() {
+    final hour = DateTime.now().hour;
+
+    if (hour < 12) {
+      return 'Good Morning';
+    } else if (hour < 18) {
+      return 'Good Afternoon';
+    } else {
+      return 'Good Evening';
+    }
   }
 
   Flexible _buildTasksListContentWidget() {
