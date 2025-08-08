@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../constants/app_color_path.dart';
 
 class AppTextField extends StatelessWidget {
   final String hintText;
@@ -39,7 +40,7 @@ class AppTextField extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(color: Color(0xFF48C9B0), width: 2),
+            borderSide: BorderSide(color: AppColorPath.lightBlue, width: 2),
           ),
         ),
       ),

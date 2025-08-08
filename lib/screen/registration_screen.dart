@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rc/components/app_button.dart';
-import 'package:flutter_rc/components/app_textfiled.dart';
+import 'package:flutter_rc/components/app_textfield.dart';
 import 'package:flutter_rc/constants/app_color_path.dart';
 import 'package:flutter_rc/constants/app_image_path.dart';
 
